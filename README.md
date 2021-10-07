@@ -87,7 +87,29 @@ PATCH /article ? article id & password
 
 #### GET
 
+##### /boards
+
+```
+0. /boards는 board의 리스트를 가져오는 api이다.
+1. redis에 저장된 boards 리스트를 가져온다.
+```
+
 ##### /board
+
+```
+0. /board는 특정 board에 저장된 article들의 헤더를 가져오는 api이다.
+1. redis를 이용하여 특정 게시판에 가장 최근에 삽입된 article의 리스트를 가져온다.
+  1-1. 요청 page가 캐싱되어있지 않다면,
+  1-2. 요청 board가 캐싱되어있지 않다면,
+```
+
+##### /article
+
+```
+0. /article은 특정 게시글의 본문을 가져오는 api이다.
+1. mongodb의 인덱스 조회를 통해 본문을 가져온다.
+  1-1. mongodb에 데이터가 없다면, mysql를 참조한다.
+```
 
 ### 구현
 
