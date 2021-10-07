@@ -70,9 +70,9 @@ PATCH /article ? article id & password
 4. 새로운 Article Id를 등록한다.
  (새로운 Article Id는 Redis에 등록한다)
 5. POST MQ 작업을 수행한다.
- (Mysql을 사용한다.)
+ (Mysql와 ElasticSearch를 사용한다.)
  5-1. POST App에서 도착한 Article 정보를 Local Buffer에 저장한다.
- 5-2. Local Buffer의 Article 정보를 Mysql에 입력한다.
+ 5-2. Local Buffer의 Article 정보를 Mysql, ElasticSearch에 입력한다.
 ```
 
 ### GET
