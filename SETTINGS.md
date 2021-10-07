@@ -43,14 +43,48 @@ sudo service docker start
 docker pull redis:alpine
 docker network create redis-net
 docker netowrk inspect redis-net
-docker run --name redisapp -p 6379:6379 --network redis-net -v my/data -d redis:alpine redis-server --appendonly yes
+docker run --name redis-container -p 6379:6379 --network redis-net -v my/data -d redis:alpine redis-server --appendonly yes
 ```
 
 redis-cli 접속
 
 ```
-docker run -it --network redis-net --rm redis:alpine redis-cli -h redisapp
+docker run -it --network redis-net --rm redis:alpine redis-cli -h redis-container
 or
 docker run -it --network redis-net --rm redis:alpine ash
-redis-cli -h redis-net
+redis-cli -h redis-container
+```
+
+## MySql 설치
+
+```
+sudo yum install docker
+sudo service docker start
+docker pull mysql
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<pw> -d -p 3306:3306 mysql:latest
+```
+
+접속
+
+```
+docker exec -it mysql-container bash
+mysql -u root -p
+```
+
+## MongoDB 설치
+
+https://poiemaweb.com/docker-mongodb
+
+```
+sudo yum install docker
+sudo service docker start
+docker pull mongo
+docker run --name mongodb-container -v ~/data:/data/db -d -p 27017:27017 mongo:latest
+```
+
+접속
+
+```
+docker exec -it mongodb-container bash
+mongo
 ```
