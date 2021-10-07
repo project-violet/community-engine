@@ -7,13 +7,15 @@
 ### 구조
 
 ```
-POST /article
-{title, body, author, boardid}
+POST /article {title, body, author, boardid}
   => article id
-POST /comment
-{articleid, body, author, parent}
+POST /comment {articleid, body, author, parent}
   => comment id
 
+GET /board ? boardid & page
+GET /article ? articleid
+GET /comment ? commentid
+GET /
 ```
 
 ## 구현
