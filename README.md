@@ -6,6 +6,12 @@
 
 ### 구조
 
+#### Session
+
+
+
+#### Board, Article, Comment (READ, WRITE, DELETE, MODIFY)
+
 ```
 POST /article {title, body, author, password, boardid, title, viewed, upvote, downvote, comment count}
   => article id
