@@ -1,5 +1,7 @@
 # community-engine
 
+확장가능한 커뮤니티 서비스 엔진
+
 ## REST Api
 
 `POST`, `GET`, `DELETE`, `PATCH`, `PUT`
@@ -7,8 +9,6 @@
 ### 구조
 
 #### Session
-
-
 
 #### Board, Article, Comment (READ, WRITE, DELETE, MODIFY)
 
@@ -58,11 +58,11 @@ PATCH /article ? article id & password
   => ACK, NAK
 ```
 
-## 구현
+### 설계
 
-### POST
+#### POST
 
-#### /article, /comment
+##### /article, /comment
 
 ```
 1. 사용자로부터 Article(제목/본문/작성자/게시판Id)를 입력받는다.
@@ -81,7 +81,8 @@ PATCH /article ? article id & password
  5-2. Local Buffer의 Article 정보를 Mysql, ElasticSearch에 입력한다.
 ```
 
-### GET
+#### GET
 
-#### /board
+##### /board
 
+### 
