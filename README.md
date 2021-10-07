@@ -17,7 +17,7 @@
 #### Board, Article, Comment (READ, WRITE, DELETE, MODIFY)
 
 ```
-POST /article {title, body, author, password, boardid, title, viewed, upvote, downvote, comment count}
+POST /article {title, body, author, password, boardid, title}
   => article id
 POST /comment {articleid, body, author, password, parent}
   => comment id
