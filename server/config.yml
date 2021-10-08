@@ -1,3 +1,9 @@
+# community-engine config file
+# Copyright (C) 2021. violet-team. Licensed under the Apache-2.0 License.
+
 redis:
-  host: 127.0.0.1
-  port: 8866
+  # single or cluster
+  mode: single
+  nodes:
+    - host: 127.0.0.1
+      port: 6700

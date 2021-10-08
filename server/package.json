@@ -13,10 +13,9 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "ioredis": "^4.27.10",
     "joi": "^17.2.1",
     "mysql": "^2.18.1",
-    "redis": "^3.0.2",
-    "redis-lock": "^0.1.4",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0",
     "yaml": "^1.10.2"

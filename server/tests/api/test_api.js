@@ -1,0 +1,8 @@
+// This source code is a part of Project Violet.
+// Copyright (C) 2021. violet-team. Licensed under the Apache-2.0 License.
+
+const t_redis = require("./test_redis");
+
+module.exports = {
+  "test-redis-api": t_redis,
+};
