@@ -3,8 +3,12 @@
 
 const redis = require("../api/redis");
 
-function get_next_article_id(on_result) {
-  redis.incr("post.id", on_result);
+function get_next_article_id() {
+  return new Promise((resolve, reject) => {
+    redis.incr("post.id", function (value) {
+      resolve(value);
+    });
+  });
 }
 
 module.exports = {
