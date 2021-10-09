@@ -3,10 +3,9 @@
 
 const redis = require("./api/redis");
 
-
-function init_redis() {
-  redis.flushall();
-  redis.set("post.id", 0);
+async function init_redis() {
+  await redis.flushall();
+  await redis.set("post.id", 0);
 }
 
-init_redis();
+init_redis().then((value) => console.log('init redis'));
