@@ -15,8 +15,8 @@ async function test_post_article() {
         title: "test title",
         body: "test body",
         author: "test author",
-        password: "testpw",
-        boardid: "0",
+        password: "testpwpw",
+        boardid: 0
       },
     },
     null,
