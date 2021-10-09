@@ -43,7 +43,7 @@ sudo service docker start
 docker pull redis:alpine
 docker network create redis-net
 docker netowrk inspect redis-net
-docker run --name redis-container -p 6379:6379 --network redis-net -v my/data -d redis:alpine redis-server --appendonly yes
+docker run --name redis-container -p 6379:6379 --network redis-net -v ~/data/redis:/data -d redis:alpine redis-server --appendonly yes
 ```
 
 redis-cli 접속
@@ -79,7 +79,7 @@ https://poiemaweb.com/docker-mongodb
 sudo yum install docker
 sudo service docker start
 docker pull mongo
-docker run --name mongodb-container -v ~/data:/data/db -d -p 27017:27017 mongo:latest
+docker run --name mongodb-container -v ~/data/mongodb:/data -d -p 27017:27017 mongo:latest
 ```
 
 접속
