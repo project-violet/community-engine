@@ -4,7 +4,7 @@
 const redis = require("../../api/redis");
 
 async function test_redis() {
-  return result == true;
+  return true;
 }
 
 module.exports = {

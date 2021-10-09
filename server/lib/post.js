@@ -5,8 +5,9 @@ const redis = require("../api/redis");
 
 function get_next_article_id() {
   return new Promise((resolve, reject) => {
-    redis.incr("post.id", function (value) {
-      resolve(value);
+    redis.incr("post.id", function (err, value) {
+      if (err != null) reject(err);
+      else resolve(value);
     });
   });
 }

@@ -4,14 +4,13 @@
 const { promisify } = require("util");
 const Joi = require("joi");
 
-const l_post = require("../../lib/post");
+const { get_next_article_id } = require("../../lib/post");
 
-const get_next_article_id_async = promisify(l_post.get_next_article_id);
 async function post(req, res, next) {
   // check request format
 
   // 1. get next article id
-  var id = await get_next_article_id_async();
+  var id = await get_next_article_id();
 
   // 2. append to mongodb
 
