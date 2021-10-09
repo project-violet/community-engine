@@ -4,6 +4,7 @@
 const { promisify } = require("util");
 const Joi = require("joi");
 
+const logger = require("../../etc/logger");
 const mongo = require("../../api/mongo");
 const { get_next_article_id } = require("../../lib/post");
 
@@ -32,10 +33,13 @@ const post_article_schema = Joi.object({
 });
 
 async function post(req, res, next) {
+  logger.info('[post-article]', req.body);
+
   try {
     // check request format
     await post_article_schema.validateAsync(req.body);
   } catch (e) {
+    logger.error('[post-article-check]', req.body, e);
     res.status(400).type("json").send({ msg: "bad request" });
     return;
   }
@@ -50,9 +54,11 @@ async function post(req, res, next) {
     var m_result = await m_save_async();
 
     // 3. append to mysql
+    // TODO: Implements append to mysql
 
     res.json({ msg: "success", result: { id: id, _id: m_result._id } });
   } catch (e) {
+    logger.error('[post-article-body]', e);
     res.status(500).type("json").send({ msg: "internal server error" });
   }
 }
