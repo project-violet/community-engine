@@ -38,7 +38,7 @@ async function post(req, res, next) {
     var id = await get_next_article_id();
 
     // 2. append to mongodb
-    var m = new m_article({ ...req.body, id: id });
+    var m = new m_article.mongo({ ...req.body, id: id });
     const m_save_async = promisify(m.save).bind(m);
     var m_result = await m_save_async();
 
