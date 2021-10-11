@@ -1,10 +1,10 @@
 // This source code is a part of Project Violet.
 // Copyright (C) 2021. violet-team. Licensed under the Apache-2.0 License.
 
-const a_get = require("../../routes/article/get");
+const a_del = require("../../routes/article/del");
 
-async function test_get_article() {
-  var result = await a_get(
+async function test_del_article() {
+  var result = await a_del(
     {
       query: {
         id: 4,
@@ -18,5 +18,5 @@ async function test_get_article() {
 }
 
 module.exports = {
-  "test-get-article": test_get_article,
+  "test-del-article": test_del_article,
 };
