@@ -5,24 +5,13 @@ const { promisify } = require("util");
 const Joi = require("joi");
 
 const logger = require("../../etc/logger");
-const mongo = require("../../api/mongo");
+const m_article = require("../../model/article");
 const { get_next_article_id } = require("../../lib/post");
 
 /*
 POST /article {title, body, author, password, boardid, title}
   => article id
 */
-
-const m_post_article_schema = new mongo.Schema({
-  id: Number,
-  title: String,
-  author: String,
-  body: String,
-  password: String,
-  boardid: Number,
-  published_date: { type: Date, default: Date.now },
-});
-const m_post_article_model = mongo.model("post.article", m_post_article_schema);
 
 const post_article_schema = Joi.object({
   title: Joi.string().max(255).min(1).required(),
@@ -49,7 +38,7 @@ async function post(req, res, next) {
     var id = await get_next_article_id();
 
     // 2. append to mongodb
-    var m = new m_post_article_model({ ...req.body, id: id });
+    var m = new m_article({ ...req.body, id: id });
     const m_save_async = promisify(m.save).bind(m);
     var m_result = await m_save_async();
 
