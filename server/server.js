@@ -1,22 +1,25 @@
 // This source code is a part of Project Violet.
 // Copyright (C) 2021. violet-team. Licensed under the Apache-2.0 License.
 
-const logger = require('./etc/logger');
-const config = require('./config');
+const logger = require("./etc/logger");
+const config = require("./config");
 
-const app = require('./app');
-const http = require('http');
+const http = require("http");
 
-var port = config.server_port;
-app.set('port', port);
+const app = require("./app");
 
-var server = http.createServer(app);
+const port = config.server_port;
+app.set("port", port);
+
+const server = http.createServer(app);
 
 server.listen(port);
-server.on('error', onError);
+server.on("error", onError);
 
-logger.info('hello');
+require('./ws');
+
+logger.info("hello");
 
 function onError(error) {
-    logger.error(error);
+  logger.error(error);
 }

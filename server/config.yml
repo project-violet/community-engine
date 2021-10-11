@@ -2,6 +2,7 @@
 # Copyright (C) 2021. violet-team. Licensed under the Apache-2.0 License.
 
 server_port: 8864
+ws_port: 8867
 
 redis:
   # single or cluster
