@@ -1,6 +1,8 @@
 # community-engine config file
 # Copyright (C) 2021. violet-team. Licensed under the Apache-2.0 License.
 
+server_port: 8864
+
 redis:
   # single or cluster
   mode: single

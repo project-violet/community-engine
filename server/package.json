@@ -9,6 +9,7 @@
     "test-get": "cross-env CE_CONFIG_FILE=config.yml node tests/get/test_get.js",
     "test-init": "cross-env CE_CONFIG_FILE=config.yml node init.js",
     "test-lib": "cross-env CE_CONFIG_FILE=config.yml node tests/lib/test_lib.js",
+    "test-start": "cross-env CE_CONFIG_FILE=config.yml node server.js",
     "start": "node server.js"
   },
   "author": "",
@@ -16,6 +17,9 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "express-blacklist": "^1.0.3",
+    "express-defend": "^1.0.9",
+    "express-rate-limit": "^5.1.3",
     "ioredis": "^4.27.10",
     "joi": "^17.2.1",
     "mongoose": "^6.0.10",
