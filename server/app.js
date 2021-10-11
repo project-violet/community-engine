@@ -10,6 +10,8 @@ const app = express();
 
 const p = require('./pages/status');
 
+const home = require('./routes/routes');
+
 app.disable("x-powered-by");
 app.use(express.json());
 
@@ -31,6 +33,8 @@ const limiter = rateLimit({
   max: 5 * 6 * 3 * 100,
 });
 app.use(limiter);
+
+app.use(home);
 
 app.use(function (req, res, next) {
   res.status(404).type("html").send(p.p404);
