@@ -12,24 +12,27 @@ const get_article_schema = Joi.object({
 });
 
 async function get(req, res, next) {
-  logger.info("[get-article]", req.query);
+  logger.info("[get-article] %s", req.query);
 
   try {
     // check request format
-    await get_article_schema.validateAsync(req.body);
+    await get_article_schema.validateAsync(req.query);
   } catch (e) {
-    logger.error("[get-article-check]", req.body, e);
+    logger.error("[get-article-check] %s %s", req.query, e);
     res.status(400).type("json").send({ msg: "bad request" });
     return;
   }
 
   try {
     const m_find_async = promisify(m_article.mongo.find).bind(m_article.mongo);
-    var result = await m_find_async({ id: req.query.id });
+    var result = await m_find_async(
+      { id: req.query.id },
+      { _id: 0, password: 0, __v: 0, id }
+    );
 
     res.json({ msg: "success", result: result });
   } catch (e) {
-    logger.error("[get-article-body]", e);
+    logger.error("[get-article-body] %s", e);
     res.status(500).type("json").send({ msg: "internal server error" });
   }
 }

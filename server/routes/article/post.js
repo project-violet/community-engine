@@ -22,13 +22,13 @@ const post_article_schema = Joi.object({
 });
 
 async function post(req, res, next) {
-  logger.info('[post-article]', req.body);
+  logger.info('[post-article] %s', req.body);
 
   try {
     // check request format
     await post_article_schema.validateAsync(req.body);
   } catch (e) {
-    logger.error('[post-article-check]', req.body, e);
+    logger.error('[post-article-check] %s %s', req.body, e);
     res.status(400).type("json").send({ msg: "bad request" });
     return;
   }
@@ -47,7 +47,7 @@ async function post(req, res, next) {
 
     res.json({ msg: "success", result: { id: id, _id: m_result._id } });
   } catch (e) {
-    logger.error('[post-article-body]', e);
+    logger.error('[post-article-body] %s', e);
     res.status(500).type("json").send({ msg: "internal server error" });
   }
 }
