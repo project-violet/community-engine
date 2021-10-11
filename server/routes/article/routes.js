@@ -6,8 +6,10 @@ const router = express.Router();
 
 const get = require("./get");
 const post = require("./post");
+const del = require("./del");
 
 router.get("/", get);
 router.post("/", post);
+router.delete("/", del);
 
 module.exports = router;
