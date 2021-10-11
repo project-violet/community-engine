@@ -6,6 +6,7 @@
   "scripts": {
     "test": "cross-env CE_CONFIG_FILE=config.yml node tests/test_entry.js",
     "test-config": "cross-env CE_CONFIG_FILE=config.yml node config.js",
+    "test-get": "cross-env CE_CONFIG_FILE=config.yml node tests/get/test_get.js",
     "test-init": "cross-env CE_CONFIG_FILE=config.yml node init.js",
     "test-lib": "cross-env CE_CONFIG_FILE=config.yml node tests/lib/test_lib.js",
     "start": "node server.js"

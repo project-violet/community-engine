@@ -3,6 +3,7 @@
 
 const t_api = require("./api/test_api");
 const t_config = require("./config/test_config");
+const t_get = require("./get/test_get");
 const t_lib = require('./lib/test_lib');
 const t_post = require("./post/test_post");
 
@@ -10,6 +11,7 @@ var modules = [];
 
 modules.push(t_api);
 modules.push(t_config);
+modules.push(t_get);
 modules.push(t_lib);
 modules.push(t_post);
 
